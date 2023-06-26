@@ -10,7 +10,6 @@ from models.image_handler import ImageHandler
 
 
 def main():
-    test = 1
     data_folder = r'D:\MnS\Projects\Algo\data'
     config_folder = r'D:\MnS\Projects\Algo\config'
     config = get_config(os.path.join(config_folder, "default.yaml"))

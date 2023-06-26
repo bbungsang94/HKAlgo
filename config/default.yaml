@@ -1,0 +1,78 @@
+# --- Defaults ---
+default:
+ save: True
+ root: D:\MnS\Presentation\Business Papers\2022_HanKookTire\Data
+# --- Input ---
+input:
+ image_folder: "ImageSet"
+ depth_folder: "ImageSet_depth"
+ base_path: "Algo"
+# --- Analytics ---
+analytics:
+ raw_path: "Analytics"
+ surface_folder: "surfaceGap"
+ multiple_folder: "multipleGap"
+ depthmean_folder: "depthMean"
+ depthnorm_folder: "depthNorm"
+ depthdev_folder: "depthStandard"
+ save: False
+# --- Depth filter ---
+depthfilter:
+ raw_path: "Depth"
+ hist_folder: "01_histogram"
+ outlier_depth: [30, 70]
+ height_gap: 18.0
+ # 22.3
+ normalize_thrd: 0.5
+ save: False
+# --- Preprocessing ---
+preprocessing:
+ raw_path: "Preprocessing"
+ depthinter_folder: "00_depthInter"
+ lab_folder: "01_lab"
+ mf_folder: "02_median"
+ bf_folder: "02_bilateral"
+ comp_folder: "03_composite"
+ input_folder: "04_light_removal"
+ red_folder: "05_blur"
+ height_folder: "04_height"
+ save: False
+# --- Processing ---
+processing:
+ raw_path: "Processing"
+ input_folder: "01_input"
+ edge_folder: "02_target"
+ blur_folder: "03_blur"
+ norm_folder: "04_norm"
+ save: False
+ # --- Detection Model ---
+detector:
+ raw_path: "Detection"
+ detected_folder: "01_detected"
+ overlay_folder: "02_overlay"
+ deleted_folder: "03_deleted"
+ anchor_folder: "04_anchors"
+ label_folder: "05_labels"
+ model_name: "Yolov7"
+ hub_mode: False
+ model_handle: "./models/save/Yolov7_best.pt"
+ label_path: "./config/yolov5_label_map.yaml"
+ box_min_score: 0.3
+ iou_score: 0.3
+ offset_score: 0.3
+ max_boxes: 10
+ save: False
+  # --- Pattern Matching Model ---
+matcher:
+ raw_path: "PatternMatching"
+ fitted_folder: "01_fitted"
+ detected_folder: "02_form"
+ save: True
+ defined_patterns:
+  2:
+   cap: [['H', 'V', '_'], ['H', 'H', 'H'], ['VH', 'V', '_']]
+   cup: [['V', '_', 'H'], ['H', 'H', 'H'], ['V', '_', '_']]
+   bar: [['H', 'H', 'H'], ['H', 'H', 'H']]
+  1.5:
+   wing: [['H', 'H', 'H'], ['V', 'V', '_'], ['H', 'H', 'H']]
+   stick: [['V', 'V'], ['V', 'V'], ['V', 'V'], ['V', 'V']]

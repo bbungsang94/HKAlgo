@@ -1,7 +1,7 @@
 # --- Defaults ---
 default:
  save: True
- root: D:\MnS\Presentation\Business Papers\2022_HanKookTire\Data
+ root: D:\Python\HKAlgo\data
 # --- Input ---
 input:
  image_folder: "ImageSet"

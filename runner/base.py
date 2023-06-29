@@ -20,3 +20,5 @@ class Runner(metaclass=ABCMeta):
     @abstractmethod
     def reset(self):
         pass
+
+    # runner 내가 짜야하는 부분 ㅌ
